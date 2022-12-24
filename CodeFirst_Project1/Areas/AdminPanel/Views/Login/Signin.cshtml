@@ -1,0 +1,79 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Yönetici Girişi</title>
+    <link href="~/Areas/AdminPanel/Assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Areas/AdminPanel/Assets/css/login.css" rel="stylesheet" />
+</head>
+<body class="text-center">
+
+    @*@using (Html.BeginForm("Signin", "Login", FormMethod.Post, new { @class = "form-signin" }))
+        {
+            <img class="mb-4" src="~/Areas/AdminPanel/Images/Admin_icon.png" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal">Yönetici Girişi</h1>
+            <label for="inputEmail" class="sr-only">Kullanıcı Adı</label>
+            <input type="text" name="userName" class="form-control" placeholder="Kullanıcı adı" required autofocus>
+            <label for="inputPassword" class="sr-only">Şifre</label>
+            <input type="password" name="password" class="form-control" placeholder="Şifre" required>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Giriş Yap</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 2021 - Büşra Kaan</p>
+        }*@
+    <div class="row">
+        <div class="col-md-6 mx-auto p-0">
+            @if (ViewBag.message != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    @ViewBag.message
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+            <div class="card">
+                <div class="login-box">
+                    <div class="login-snip">
+                        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label> <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                        <div class="login-space">
+                            @using (Html.BeginForm("Signin", "Login", FormMethod.Post))
+                            {
+                                <div class="login">
+                                    <div class="group"> <label for="user" class="label">Username</label> <input name="userName" type="text" class="input" placeholder="Enter your username"> </div>
+                                    <div class="group"> <label for="pass" class="label">Password</label> <input name="password" type="password" class="input" data-type="password" placeholder="Enter your password"> </div>
+                                    <div class="group"> <input type="submit" class="button" value="Sign In"> </div>
+                                    <div class="hr"></div>
+                                </div>
+                            }
+                            @using (Html.BeginForm("SignUp", "Login", FormMethod.Post))
+                            {
+                                <div class="sign-up-form">
+                                    <div class="group"><label for="user" class="label"></label><input name="userName" type="text" class="input" placeholder="Create your Username"></div>
+                                    <div class="group"><label for="user" class="label"></label><input name="fullName" type="text" class="input" placeholder="Enter your full name"></div>
+                                    <div class="group"><label for="pass" class="label"></label><input name="password" type="password" class="input" data-type="password" placeholder="Create your password"></div>
+                                    <div class="group"><label for="pass" class="label"></label><input name="password2" type="password" class="input" data-type="password" placeholder="Repeat your password"></div>
+                                    <div class="group"><label for="pass" class="label"></label><input name="mail" type="text" class="input" placeholder="Enter your email address"></div>
+                                    <div class="group"><input type="submit" class="button" value="Sign Up"></div>
+                                    <div class="hr"></div>
+                                    <div class="foot"><label for="tab-1"></label></div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Areas/AdminPanel/Assets/jquery-3.6.0.min.js"></script>
+    <script src="~/Areas/AdminPanel/Assets/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Areas/AdminPanel/Assets/js/bootstrap.min.js"></script>
+</body>
+</html>
